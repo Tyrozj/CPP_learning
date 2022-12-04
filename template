@@ -1,0 +1,17 @@
+#ifndef _COMPARE_H
+#define _COMPARE_H
+
+tempalte<typename T>
+bool isEqual(T i, T j);
+
+tempalte<typename T>
+bool isEqual(T i, T j);
+{
+  return i == j;
+}
+#endif
+
+
+in main:
+
+isEqual(1, 1);
