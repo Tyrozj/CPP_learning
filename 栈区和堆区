@@ -1,0 +1,39 @@
+//栈区
+#include<iostream>
+using namespace std;
+//栈区存放：局部变量、形参
+//栈区注意事项：不能返回局部变量的地址
+//栈区的数据由编译器管理开辟和释放
+int* func(int b)//形参数据也会放在栈区
+{
+	b = 100;
+	int a = 10;
+	return &a;//返回a的地址
+}
+int main()
+{
+	
+	int* p = func(1);
+	cout <<*p << endl;//第一次可以打印正确的数字，因为编译器做了保留
+	cout << *p << endl;//第二次这个数据就不再保留了
+	system("pause");
+	return 0;
+}
+//堆区
+#include<iostream>
+using namespace std;
+
+int* func()
+{
+	//利用new关键字，将数据开辟到堆区
+	//指针 本质也是局部变量，放在栈上，指针保存的数据放在堆区
+	int *p=new int(10);//初始值为10
+	return p;
+}
+int main()
+{
+	int* p = func();
+	cout << *p << endl;
+	system("pause");
+	return 0;
+}
