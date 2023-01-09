@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+
+void func(int &a)
+{
+	cout << "func(int a)的输出" << endl;
+
+}
+void func(const int &a)
+{
+	cout << "func (const int a)的输出" << endl;
+}
+int main()
+{
+	int a = 10;
+	func(a);//调用过去是int &a = a，引用作为形参
+	func(10);//int &a=10的引用形式是不合法的。const int &a = 10是合法的
+	system("pause");
+	return 0;
+}
